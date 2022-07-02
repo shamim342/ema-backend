@@ -2,7 +2,7 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors= require('cors');
 const app = express();
-const port = 5000;
+const port = process.env.PORT  || 5000;
 
 // middleware
 app.use(cors());
@@ -57,6 +57,4 @@ app.get('/' , (req, res)=>{
     res.send('ema app 3')
 });
 
-app.listen(port , ()=>{
-    console.log('sucesss');
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
